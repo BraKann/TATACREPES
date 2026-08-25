@@ -16,9 +16,17 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-black">
+    <header
+      className="sticky top-0 z-50"
+      style={{ backgroundColor: 'var(--cream)', borderBottom: '1px solid var(--border-soft)' }}
+    >
       <div className="max-w-[1100px] mx-auto px-6 flex items-center justify-between gap-4 py-4">
-        <Link to="/" className="text-xl font-bold" onClick={() => setMenuOpen(false)}>
+        <Link
+          to="/"
+          className="text-xl font-bold"
+          style={{ color: 'var(--ink)' }}
+          onClick={() => setMenuOpen(false)}
+        >
           Tata Crêpes
         </Link>
 
@@ -29,57 +37,54 @@ export default function Header() {
               key={to}
               to={to}
               end={to === '/'}
-              className={({ isActive }) =>
-                `text-sm font-medium pb-0.5 border-b-2 transition-colors ${
-                  isActive ? 'border-black font-semibold' : 'border-transparent hover:border-zinc-300'
-                }`
-              }
+              className={({ isActive }) => `text-sm font-medium pb-0.5 border-b-2 transition-colors ${isActive ? 'font-semibold' : 'border-transparent'}`}
+              style={({ isActive }) => ({
+                color: 'var(--ink)',
+                borderColor: isActive ? 'var(--terracotta)' : 'transparent',
+              })}
             >
               {label}
             </NavLink>
           ))}
-          <Link
-            to="/contact"
-            className="ml-2 px-5 py-2 text-sm font-semibold border-2 border-black bg-black text-white hover:bg-white hover:text-black transition-colors"
-          >
+          <Link to="/contact" className="btn-primary ml-2">
             Demander un devis
           </Link>
         </nav>
 
         {/* Burger mobile */}
         <button
-          className="md:hidden flex flex-col justify-center gap-[5px] w-11 h-11 border border-black bg-white"
+          className="md:hidden flex flex-col justify-center gap-[5px] w-11 h-11 rounded-full"
+          style={{ border: '1px solid var(--border-soft)', backgroundColor: 'var(--card)' }}
           aria-label="Menu"
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          <span className={`block h-[2px] bg-black transition-transform ${menuOpen ? 'translate-y-[7px] rotate-45' : ''}`} />
-          <span className={`block h-[2px] bg-black transition-opacity ${menuOpen ? 'opacity-0' : ''}`} />
-          <span className={`block h-[2px] bg-black transition-transform ${menuOpen ? '-translate-y-[7px] -rotate-45' : ''}`} />
+          <span className={`block h-[2px] mx-2.5 transition-transform ${menuOpen ? 'translate-y-[7px] rotate-45' : ''}`} style={{ backgroundColor: 'var(--ink)' }} />
+          <span className={`block h-[2px] mx-2.5 transition-opacity ${menuOpen ? 'opacity-0' : ''}`} style={{ backgroundColor: 'var(--ink)' }} />
+          <span className={`block h-[2px] mx-2.5 transition-transform ${menuOpen ? '-translate-y-[7px] -rotate-45' : ''}`} style={{ backgroundColor: 'var(--ink)' }} />
         </button>
       </div>
 
       {/* Menu mobile */}
       {menuOpen && (
-        <nav className="md:hidden flex flex-col gap-1 px-6 py-4 bg-white border-t border-black" aria-label="Menu mobile">
+        <nav
+          className="md:hidden flex flex-col gap-1 px-6 py-4"
+          style={{ backgroundColor: 'var(--cream)', borderTop: '1px solid var(--border-soft)' }}
+          aria-label="Menu mobile"
+        >
           {NAV_LINKS.map(({ to, label }) => (
             <NavLink
               key={to}
               to={to}
               end={to === '/'}
-              className={({ isActive }) =>
-                `py-2.5 border-b border-zinc-100 font-medium ${isActive ? 'font-bold' : ''}`
-              }
+              className={({ isActive }) => `py-2.5 font-medium ${isActive ? 'font-bold' : ''}`}
+              style={{ color: 'var(--ink)', borderBottom: '1px solid var(--border-soft)' }}
               onClick={() => setMenuOpen(false)}
             >
               {label}
             </NavLink>
           ))}
-          <Link
-            to="/contact"
-            className="mt-2 text-center px-5 py-2.5 text-sm font-semibold border-2 border-black bg-black text-white"
-            onClick={() => setMenuOpen(false)}
-          >
+          <Link to="/contact" className="btn-primary mt-2 text-center" onClick={() => setMenuOpen(false)}>
             Demander un devis
           </Link>
         </nav>

@@ -33,13 +33,11 @@ export default function LeCulottage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="bg-white py-16 md:py-24">
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--cream)' }}>
         <div className="max-w-[1100px] mx-auto px-6 text-center">
-          <span className="inline-block text-xs font-semibold uppercase tracking-[0.16em] mb-3 text-zinc-700">
-            Le savoir-faire
-          </span>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Le culottage, qu'est-ce que c'est ?</h1>
-          <p className="max-w-[680px] mx-auto text-lg text-zinc-600">
+          <span className="kicker justify-center flex">le savoir-faire</span>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: 'var(--ink)' }}>Le culottage, qu'est-ce que c'est ?</h1>
+          <p className="max-w-[680px] mx-auto text-lg" style={{ color: 'var(--ink-soft)' }}>
             Le culottage est le procédé qui rend une billig ou une crêpière antiadhésive
             sans aucun produit chimique : une fine pellicule d'huile de lin polymérisée,
             appliquée par couches successives à la chaleur, vient protéger et lisser le métal.
@@ -48,88 +46,91 @@ export default function LeCulottage() {
         </div>
       </section>
 
-      {/* ── ÉTAPES ── bandes douces */}
+      <div className="wave-cream" />
+
+      {/* ── ÉTAPES ── rayures douces */}
       <section className="stripes-soft py-16 md:py-24">
         <div className="max-w-[1100px] mx-auto px-6">
-          <span className="inline-block text-xs font-semibold uppercase tracking-[0.16em] mb-3 text-zinc-700">
-            Notre méthode
-          </span>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-10">Les étapes du culottage</h2>
+          <span className="kicker">notre</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-10" style={{ color: 'var(--ink)' }}>méthode</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {ETAPES.map(({ num, titre, texte }) => (
-              <div key={num} className="relative bg-white border border-black p-8 pt-9">
-                <span className="absolute -top-4 left-6 w-9 h-9 rounded-full bg-black text-white flex items-center justify-center font-bold">
+              <div key={num} className="card-soft relative p-8 pt-9">
+                <span
+                  className="absolute -top-4 left-6 w-9 h-9 rounded-full flex items-center justify-center font-bold"
+                  style={{ backgroundColor: 'var(--terracotta)', color: 'var(--cream)' }}
+                >
                   {num}
                 </span>
-                <h3 className="font-semibold text-lg mb-2">{titre}</h3>
-                <p className="text-zinc-600 text-sm leading-relaxed">{texte}</p>
+                <h3 className="font-semibold text-lg mb-2" style={{ color: 'var(--ink)' }}>{titre}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-soft)' }}>{texte}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      <div className="wave-cream" />
 
       {/* ── QUAND CULOTTER ── */}
-      <section className="bg-white py-16 md:py-24">
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--cream)' }}>
         <div className="max-w-[1100px] mx-auto px-6">
-          <span className="inline-block text-xs font-semibold uppercase tracking-[0.16em] mb-3 text-zinc-700">
-            Signes qui ne trompent pas
-          </span>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-10">Quand faire appel à Tata Crêpes ?</h2>
+          <span className="kicker">signes qui ne trompent pas</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-10" style={{ color: 'var(--ink)' }}>Quand faire appel à Tata Crêpes ?</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {SIGNES.map((texte) => (
-              <div key={texte} className="bg-white border border-black p-6">
-                <p className="text-zinc-700">{texte}</p>
+              <div key={texte} className="card-soft p-6">
+                <p style={{ color: 'var(--ink)' }}>{texte}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── TYPES DE BILIG ── bandes charbon */}
-      <section className="stripes-charcoal py-16 md:py-24">
+      <div className="wave-sage" />
+
+      {/* ── TYPES DE BILIG ── rayures sauge */}
+      <section className="stripes-sage py-16 md:py-24">
         <div className="max-w-[1100px] mx-auto px-6">
-          <span className="inline-block text-xs font-semibold uppercase tracking-[0.16em] mb-3 text-zinc-700">
-            Tous types de crêpières
-          </span>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-10">Quelle que soit votre billig</h2>
+          <span className="kicker">tous types de</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-10" style={{ color: 'var(--ink)' }}>crêpières</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {TYPES_BILIG.map(({ titre, texte }) => (
-              <div key={titre} className="bg-white border border-black p-8">
-                <h3 className="font-semibold text-lg mb-2">{titre}</h3>
-                <p className="text-zinc-600 text-sm leading-relaxed">{texte}</p>
+              <div key={titre} className="card-soft p-8">
+                <h3 className="font-semibold text-lg mb-2" style={{ color: 'var(--ink)' }}>{titre}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-soft)' }}>{texte}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
+      <div className="wave-cream" />
+
       {/* ── FAQ ── */}
-      <section className="bg-white py-16 md:py-24">
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--cream)' }}>
         <div className="max-w-[780px] mx-auto px-6">
-          <span className="inline-block text-xs font-semibold uppercase tracking-[0.16em] mb-3 text-zinc-700">
-            Questions fréquentes
-          </span>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-8">Vous vous demandez peut-être...</h2>
+          <span className="kicker">questions fréquentes</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-8" style={{ color: 'var(--ink)' }}>Vous vous demandez peut-être...</h2>
           {FAQ.map(({ q, r }, i) => (
-            <div key={q} className={`border-b border-black py-5 ${i === 0 ? 'pt-0' : ''}`}>
-              <h3 className="font-semibold text-lg mb-2">{q}</h3>
-              <p className="text-zinc-600">{r}</p>
+            <div key={q} className={`py-5 ${i === 0 ? 'pt-0' : ''}`} style={{ borderBottom: '1px solid var(--border-soft)' }}>
+              <h3 className="font-semibold text-lg mb-2" style={{ color: 'var(--ink)' }}>{q}</h3>
+              <p style={{ color: 'var(--ink-soft)' }}>{r}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ── CTA ── bandes noires */}
-      <section className="stripes-black py-16 md:py-24">
+      <div className="wave-terracotta" />
+
+      {/* ── CTA ── rayures terracotta */}
+      <section className="stripes-terracotta py-16 md:py-24">
         <div className="max-w-[1100px] mx-auto px-6 text-center">
-          <div className="bg-white border border-black p-10 max-w-[700px] mx-auto">
-            <span className="inline-block text-xs font-semibold uppercase tracking-[0.16em] mb-3 text-zinc-700">
-              Une billig à faire culotter ?
-            </span>
-            <h2 className="text-2xl md:text-3xl font-semibold mb-3">Parlons de votre crêpière</h2>
-            <p className="text-zinc-600 mb-6">Diagnostic et devis gratuits, sous 48h.</p>
-            <Link to="/contact" className="inline-block px-8 py-3 font-semibold text-sm border-2 border-black bg-black text-white hover:bg-white hover:text-black transition-colors">
+          <div className="card-soft p-10 max-w-[700px] mx-auto">
+            <span className="kicker justify-center flex">une billig à faire culotter ?</span>
+            <h2 className="text-2xl md:text-3xl font-bold mb-3" style={{ color: 'var(--ink)' }}>Parlons de votre crêpière</h2>
+            <p className="mb-6" style={{ color: 'var(--ink-soft)' }}>Diagnostic et devis gratuits, sous 48h.</p>
+            <Link to="/contact" className="btn-primary">
               Demander un devis
             </Link>
           </div>

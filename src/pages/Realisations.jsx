@@ -20,71 +20,74 @@ export default function Realisations() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="bg-white py-16 md:py-24">
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--cream)' }}>
         <div className="max-w-[1100px] mx-auto px-6 text-center">
-          <span className="inline-block text-xs font-semibold uppercase tracking-[0.16em] mb-3 text-zinc-700">
-            Nos réalisations
-          </span>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Des biligs qui reprennent du service</h1>
-          <p className="max-w-[600px] mx-auto text-lg text-zinc-600">
+          <span className="kicker justify-center flex">nos réalisations</span>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: 'var(--ink)' }}>Des biligs qui reprennent du service</h1>
+          <p className="max-w-[600px] mx-auto text-lg" style={{ color: 'var(--ink-soft)' }}>
             Quelques exemples d'interventions récentes en Loire-Atlantique et dans le Morbihan.
           </p>
         </div>
       </section>
 
-      {/* ── GALERIE AVANT/APRÈS ── bandes douces */}
+      <div className="wave-cream" />
+
+      {/* ── GALERIE AVANT/APRÈS ── rayures douces */}
       <section className="stripes-soft py-16 md:py-24">
         <div className="max-w-[1100px] mx-auto px-6">
-          <span className="inline-block text-xs font-semibold uppercase tracking-[0.16em] mb-3 text-zinc-700">
-            Avant / Après
-          </span>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-10">La différence en un coup d'œil</h2>
+          <span className="kicker">avant /</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-10" style={{ color: 'var(--ink)' }}>après</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {REALISATIONS.map(({ titre, desc }) => (
-              <div key={titre} className="bg-white border border-black p-6">
+              <div key={titre} className="card-soft p-6">
                 <div className="grid grid-cols-2 gap-3">
                   {['Avant', 'Après'].map((label) => (
-                    <div key={label} className="aspect-square bg-zinc-100 border border-black flex items-center justify-center text-zinc-400 font-semibold uppercase tracking-wide text-xs" aria-hidden="true">
+                    <div
+                      key={label}
+                      className="aspect-square rounded-xl flex items-center justify-center font-semibold uppercase tracking-wide text-xs"
+                      style={{ backgroundColor: 'var(--cream-deep)', color: 'var(--ink-soft)' }}
+                      aria-hidden="true"
+                    >
                       {label}
                     </div>
                   ))}
                 </div>
-                <h3 className="font-semibold text-lg mt-5 mb-1">{titre}</h3>
-                <p className="text-zinc-600 text-sm">{desc}</p>
+                <h3 className="font-semibold text-lg mt-5 mb-1" style={{ color: 'var(--ink)' }}>{titre}</h3>
+                <p className="text-sm" style={{ color: 'var(--ink-soft)' }}>{desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      <div className="wave-cream" />
 
       {/* ── TÉMOIGNAGES ── */}
-      <section className="bg-white py-16 md:py-24">
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--cream)' }}>
         <div className="max-w-[1100px] mx-auto px-6">
-          <span className="inline-block text-xs font-semibold uppercase tracking-[0.16em] mb-3 text-zinc-700">
-            Ils nous font confiance
-          </span>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-10">Témoignages</h2>
+          <span className="kicker">ils nous font</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-10" style={{ color: 'var(--ink)' }}>confiance</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {TEMOIGNAGES.map(({ texte, auteur }) => (
-              <div key={auteur} className="bg-white border border-black p-7">
-                <p className="italic mb-4 text-zinc-700">« {texte} »</p>
-                <p className="text-sm font-semibold text-zinc-600">— {auteur}</p>
+              <div key={auteur} className="card-soft p-7">
+                <p className="italic mb-4" style={{ color: 'var(--ink)' }}>« {texte} »</p>
+                <p className="text-sm font-semibold" style={{ color: 'var(--ink-soft)' }}>— {auteur}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── CTA ── bandes charbon */}
-      <section className="stripes-charcoal py-16 md:py-24">
+      <div className="wave-sage" />
+
+      {/* ── CTA ── rayures sauge */}
+      <section className="stripes-sage py-16 md:py-24">
         <div className="max-w-[1100px] mx-auto px-6 text-center">
-          <div className="bg-white border border-black p-10 max-w-[700px] mx-auto">
-            <span className="inline-block text-xs font-semibold uppercase tracking-[0.16em] mb-3 text-zinc-700">
-              À votre tour
-            </span>
-            <h2 className="text-2xl md:text-3xl font-semibold mb-3">Votre billig mérite le même traitement</h2>
-            <p className="text-zinc-600 mb-6">Devis gratuit, sous 48h, sans engagement.</p>
-            <Link to="/contact" className="inline-block px-8 py-3 font-semibold text-sm border-2 border-black bg-black text-white hover:bg-white hover:text-black transition-colors">
+          <div className="card-soft p-10 max-w-[700px] mx-auto">
+            <span className="kicker justify-center flex">à votre tour</span>
+            <h2 className="text-2xl md:text-3xl font-bold mb-3" style={{ color: 'var(--ink)' }}>Votre billig mérite le même traitement</h2>
+            <p className="mb-6" style={{ color: 'var(--ink-soft)' }}>Devis gratuit, sous 48h, sans engagement.</p>
+            <Link to="/contact" className="btn-primary">
               Demander un devis
             </Link>
           </div>

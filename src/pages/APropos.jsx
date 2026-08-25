@@ -18,28 +18,26 @@ export default function APropos() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="bg-white py-16 md:py-24">
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--cream)' }}>
         <div className="max-w-[1100px] mx-auto px-6 text-center">
-          <span className="inline-block text-xs font-semibold uppercase tracking-[0.16em] mb-3 text-zinc-700">
-            Qui sommes-nous
-          </span>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">À propos de Tata Crêpes</h1>
-          <p className="max-w-[620px] mx-auto text-lg text-zinc-600">
+          <span className="kicker justify-center flex">qui sommes-nous</span>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: 'var(--ink)' }}>À propos de Tata Crêpes</h1>
+          <p className="max-w-[620px] mx-auto text-lg" style={{ color: 'var(--ink-soft)' }}>
             Une passion transmise, un geste précis, et une seule mission :
             redonner à chaque billig la surface qu'elle mérite.
           </p>
         </div>
       </section>
 
-      {/* ── HISTOIRE ── bandes douces */}
+      <div className="wave-cream" />
+
+      {/* ── HISTOIRE ── rayures douces */}
       <section className="stripes-soft py-16 md:py-24">
         <div className="max-w-[1100px] mx-auto px-6">
-          <div className="bg-white border border-black p-10">
-            <span className="inline-block text-xs font-semibold uppercase tracking-[0.16em] mb-3 text-zinc-700">
-              Notre histoire
-            </span>
-            <h2 className="text-2xl md:text-3xl font-semibold mb-4">Un savoir-faire breton, transmis avec exigence</h2>
-            <p className="text-zinc-700 mb-4">
+          <div className="card-soft p-10">
+            <span className="kicker">notre</span>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: 'var(--ink)' }}>Un savoir-faire breton, transmis avec exigence</h2>
+            <p className="mb-4" style={{ color: 'var(--ink)' }}>
               Tata Crêpes est né d'un constat simple : trop de biligs, professionnelles
               comme familiales, sont mal culottées ou abandonnées faute d'un artisan
               capable de leur redonner vie. Fort d'une pratique quotidienne du culottage
@@ -47,7 +45,7 @@ export default function APropos() {
               Morbihan pour intervenir directement chez les crêperies, restaurants et
               particuliers qui nous font confiance.
             </p>
-            <p className="text-zinc-700">
+            <p style={{ color: 'var(--ink)' }}>
               Chaque billig est différente — son métal, son âge, son usage. C'est pour
               cela que le culottage ne se fait jamais à la chaîne : il se fait à la main,
               au geste, à l'écoute de la matière.
@@ -56,39 +54,39 @@ export default function APropos() {
         </div>
       </section>
 
+      <div className="wave-cream" />
+
       {/* ── VALEURS ── */}
-      <section className="bg-white py-16 md:py-24">
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--cream)' }}>
         <div className="max-w-[1100px] mx-auto px-6">
-          <span className="inline-block text-xs font-semibold uppercase tracking-[0.16em] mb-3 text-zinc-700">
-            Nos valeurs
-          </span>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-10">Ce qui guide notre travail</h2>
+          <span className="kicker">nos</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-10" style={{ color: 'var(--ink)' }}>valeurs</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {VALEURS.map(({ icon, titre, texte }) => (
-              <div key={titre} className="bg-white border border-black p-8 text-center">
+              <div key={titre} className="card-soft p-8 text-center">
                 <span className="block text-3xl mb-3">{icon}</span>
-                <h3 className="font-semibold text-lg mb-2">{titre}</h3>
-                <p className="text-zinc-600 text-sm leading-relaxed">{texte}</p>
+                <h3 className="font-semibold text-lg mb-2" style={{ color: 'var(--ink)' }}>{titre}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-soft)' }}>{texte}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── ZONE D'INTERVENTION ── bandes charbon */}
-      <section className="stripes-charcoal py-16 md:py-24">
+      <div className="wave-sage" />
+
+      {/* ── ZONE D'INTERVENTION ── rayures sauge */}
+      <section className="stripes-sage py-16 md:py-24">
         <div className="max-w-[1100px] mx-auto px-6 text-center">
-          <div className="bg-white border border-black p-10 max-w-[760px] mx-auto">
-            <span className="inline-block text-xs font-semibold uppercase tracking-[0.16em] mb-3 text-zinc-700">
-              Où nous intervenons
-            </span>
-            <h2 className="text-2xl md:text-3xl font-semibold mb-4">Loire-Atlantique (44) et Morbihan (56)</h2>
-            <p className="text-zinc-600 mb-6 max-w-[560px] mx-auto">
+          <div className="card-soft p-10 max-w-[760px] mx-auto">
+            <span className="kicker justify-center flex">où nous intervenons</span>
+            <h2 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: 'var(--ink)' }}>Loire-Atlantique (44) et Morbihan (56)</h2>
+            <p className="mb-6 max-w-[560px] mx-auto" style={{ color: 'var(--ink-soft)' }}>
               Quelques communes où nous nous déplaçons régulièrement — et bien d'autres sur demande.
             </p>
             <ul className="flex flex-wrap gap-2 justify-center list-none">
               {COMMUNES.map((c) => (
-                <li key={c} className="bg-white border border-black px-3.5 py-1.5 text-sm font-semibold">
+                <li key={c} className="badge-soft">
                   {c}
                 </li>
               ))}
@@ -98,10 +96,10 @@ export default function APropos() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="bg-white py-16 md:py-24">
+      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--cream)' }}>
         <div className="max-w-[1100px] mx-auto px-6 text-center">
-          <h2 className="text-2xl md:text-3xl font-semibold mb-6">Envie de nous confier votre billig ?</h2>
-          <Link to="/contact" className="inline-block px-8 py-3 font-semibold text-sm border-2 border-black bg-black text-white hover:bg-white hover:text-black transition-colors">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6" style={{ color: 'var(--ink)' }}>Envie de nous confier votre billig ?</h2>
+          <Link to="/contact" className="btn-primary">
             Demander un devis
           </Link>
         </div>
