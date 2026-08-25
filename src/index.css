@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  body {
+    color: #000;
+    background-color: #fff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: -0.025em;
+  }
+}
+
+@layer components {
+  /* Bandes verticales réutilisées sur plusieurs pages */
+  .stripes-black {
+    background-image: repeating-linear-gradient(90deg, #fff 0px 56px, #111 56px 74px);
+  }
+  .stripes-charcoal {
+    background-image: repeating-linear-gradient(90deg, #fff 0px 56px, #18181b 56px 74px);
+  }
+  .stripes-soft {
+    background-image: repeating-linear-gradient(90deg, #fff 0px 56px, #e4e4e7 56px 74px);
+  }
+}
