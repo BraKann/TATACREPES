@@ -18,7 +18,7 @@ export default function Header() {
   return (
     <header
       className="sticky top-0 z-50"
-      style={{ backgroundColor: 'var(--cream)', borderBottom: '1px solid var(--border-soft)' }}
+      style={{ backgroundColor: 'var(--bg)', borderBottom: '1px solid var(--border-soft)' }}
     >
       <div className="max-w-[1100px] mx-auto px-6 flex items-center justify-between gap-4 py-4">
         <Link
@@ -40,7 +40,7 @@ export default function Header() {
               className={({ isActive }) => `text-sm font-medium pb-0.5 border-b-2 transition-colors ${isActive ? 'font-semibold' : 'border-transparent'}`}
               style={({ isActive }) => ({
                 color: 'var(--ink)',
-                borderColor: isActive ? 'var(--terracotta)' : 'transparent',
+                borderColor: isActive ? 'var(--bande1)' : 'transparent',
               })}
             >
               {label}

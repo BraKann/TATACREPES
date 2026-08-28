@@ -22,14 +22,14 @@ export default function Accueil() {
   return (
     <>
       {/* ── DEVANTURE ── auvent + vitrine + rideau qui s'ouvre, version pastel */}
-      <section className="relative" style={{ backgroundColor: 'var(--cream)' }}>
+      <section className="relative" style={{ backgroundColor: 'var(--bg)' }}>
 
         {/* Auvent */}
         <div
           className="relative h-[90px] flex items-start justify-center"
           style={{
             borderBottom: '3px solid var(--border-soft)',
-            backgroundImage: 'repeating-linear-gradient(100deg, var(--terracotta-pale) 0 28px, var(--cream) 28px 56px)',
+            backgroundImage: 'repeating-linear-gradient(100deg, var(--bande1) 0 28px, var(--bg) 28px 56px)',
           }}
         >
         </div>
@@ -37,8 +37,8 @@ export default function Accueil() {
         <div
           className="h-[15px]"
           style={{
-            backgroundColor: 'var(--terracotta)',
-            backgroundImage: 'radial-gradient(circle at 18px 0, var(--cream) 17px, transparent 18px)',
+            backgroundColor: 'var(--bande3)',
+            backgroundImage: 'radial-gradient(circle at 18px 0, var(--bg) 17px, transparent 18px)',
             backgroundSize: '36px 15px',
             backgroundRepeat: 'repeat-x',
           }}
@@ -46,10 +46,10 @@ export default function Accueil() {
         />
 
         {/* Vitrine */}
-        <div className="px-5 pt-10 pb-14" style={{ backgroundColor: 'var(--terracotta-pale)' }}>
+        <div className="px-5 pt-10 pb-14" style={{ backgroundColor: 'var(--bg)' }}>
           <div
             className="relative max-w-[1100px] mx-auto min-h-[480px] overflow-hidden flex items-center justify-center rounded-3xl"
-            style={{ backgroundColor: 'var(--card)', border: '5px solid var(--cream)', outline: '2px solid var(--border-soft)', outlineOffset: '-8px', boxShadow: '0 30px 60px -30px rgba(74,57,42,0.35)' }}
+            style={{ backgroundColor: 'var(--card)', border: '5px solid var(--bg)', outline: '2px solid var(--border-soft)', outlineOffset: '-8px', boxShadow: '0 30px 60px -30px rgba(74,57,42,0.35)' }}
           >
             {/* Tringle */}
             <div className="absolute top-0 inset-x-0 h-2 z-30" style={{ backgroundColor: 'var(--terracotta)' }} />
