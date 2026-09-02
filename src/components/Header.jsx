@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 
+import logo from '../images/tata-q-remove.png'
+
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // 🎛️ MODIFIE : liens de navigation
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -27,7 +29,7 @@ export default function Header() {
           style={{ color: 'var(--ink)' }}
           onClick={() => setMenuOpen(false)}
         >
-          Tata Crêpes
+          <img src={logo} alt="Tata Crêpes" className="w-30 h-25" />
         </Link>
 
         {/* Nav desktop */}

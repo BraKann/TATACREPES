@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import usage from '../images/IMG_3360.jpeg'
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // 🎛️ MODIFIE : cartes "savoir-faire"
@@ -15,7 +16,7 @@ const SAVOIR_FAIRE = [
 const TRIO_PHOTOS = [
   { emoji: '🫓', label: 'Avant culottage' },
   { emoji: '🔥', label: 'En plein geste' },
-  { emoji: '✨', label: 'Prête à l\u2019usage' },
+  { image: usage, label: 'Prête à l\u2019usage' },
 ]
 
 export default function Accueil() {
@@ -107,13 +108,13 @@ export default function Accueil() {
 
           {/* Trio de photos façon polaroïd, à cheval sur la vitrine */}
           <div className="max-w-[600px] mx-auto -mt-10 relative z-20 grid grid-cols-3 gap-4 md:gap-6 px-4">
-            {TRIO_PHOTOS.map(({ emoji, label }, i) => (
+            {TRIO_PHOTOS.map(({ emoji, image, label }, i) => (
               <div
                 key={label}
                 className={`photo-trio-item ${i === 1 ? '-rotate-2 md:-mt-3' : i === 0 ? 'rotate-3' : '-rotate-3'}`}
               >
-                <div className="aspect-square rounded-[0.65rem] flex items-center justify-center text-3xl md:text-4xl" style={{ backgroundColor: 'var(--cream-deep)' }}>
-                  {emoji}
+                <div className="aspect-square rounded-[0.65rem] overflow-hidden flex items-center justify-center text-3xl md:text-4xl" style={{ backgroundColor: 'var(--cream-deep)' }}>
+                  {image ? <img src={image} alt={label} className="w-full h-full object-cover" /> : emoji}
                 </div>
                 <p className="text-[11px] md:text-xs text-center mt-1.5 font-semibold" style={{ color: 'var(--ink-soft)' }}>{label}</p>
               </div>
@@ -140,8 +141,6 @@ export default function Accueil() {
           </div>
         </div>
       </section>
-
-      <div className="wave-cream" />
 
       {/* ── AVANT/APRÈS ── section claire */}
       <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--cream)' }}>
