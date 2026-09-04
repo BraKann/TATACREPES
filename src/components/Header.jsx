@@ -39,11 +39,14 @@ export default function Header() {
               key={to}
               to={to}
               end={to === '/'}
-              className={({ isActive }) => `text-sm font-medium pb-0.5 border-b-2 transition-colors ${isActive ? 'font-semibold' : 'border-transparent'}`}
-              style={({ isActive }) => ({
-                color: 'var(--ink)',
-                borderColor: isActive ? 'var(--bande1)' : 'transparent',
-              })}
+              className={({ isActive }) =>
+                `text-sm font-medium pb-0.5 border-b-2 transition-colors ${
+                  isActive
+                    ? 'font-semibold border-[var(--bande1)]'
+                    : 'border-transparent hover:border-[var(--bande1)]/50'
+                }`
+              }
+              style={{ color: 'var(--ink)' }}
             >
               {label}
             </NavLink>

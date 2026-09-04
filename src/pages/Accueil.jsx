@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
 import usage from '../images/IMG_3360.jpeg'
+import avant from '../images/IMG_3357.jpeg'
+import pendant from '../images/IMG_3358.jpeg'
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // 🎛️ MODIFIE : cartes "savoir-faire"
@@ -14,8 +16,8 @@ const SAVOIR_FAIRE = [
 // 🎛️ MODIFIE : trio de photos sous le hero (remplace les emojis par de vraies photos)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 const TRIO_PHOTOS = [
-  { emoji: '🫓', label: 'Avant culottage' },
-  { emoji: '🔥', label: 'En plein geste' },
+  { image: avant, label: 'Avant culottage' },
+  { image: pendant, label: 'En plein geste' },
   { image: usage, label: 'Prête à l\u2019usage' },
 ]
 
@@ -50,15 +52,13 @@ export default function Accueil() {
         <div className="px-5 pt-10 pb-14" style={{ backgroundColor: 'var(--bg)' }}>
           <div
             className="relative max-w-[1100px] mx-auto min-h-[480px] overflow-hidden flex items-center justify-center rounded-3xl"
-            style={{ backgroundColor: 'var(--card)', border: '5px solid var(--bg)', outline: '2px solid var(--border-soft)', outlineOffset: '-8px', boxShadow: '0 30px 60px -30px rgba(74,57,42,0.35)' }}
+            style={{ backgroundColor: 'var(--card)', border: '5px solid var(--bg)', boxShadow: '0 30px 60px -30px rgba(74,57,42,0.35)' }}
           >
-            {/* Tringle */}
-            <div className="absolute top-0 inset-x-0 h-2 z-30" style={{ backgroundColor: 'var(--terracotta)' }} />
 
             {/* Pancarte "Ouvert" */}
             <span
               className="absolute top-6 right-6 z-40 px-3.5 py-1 text-xs font-bold uppercase tracking-widest -rotate-3 rounded-full"
-              style={{ backgroundColor: 'var(--card)', border: '2px solid var(--terracotta)', color: 'var(--terracotta)' }}
+              style={{ backgroundColor: 'var(--ink-soft)', border: '2px solid var(--bg)', color: 'var(--bg)' }}
             >
               Ouvert
             </span>
@@ -67,25 +67,23 @@ export default function Accueil() {
             <div
               className="absolute top-0 bottom-0 left-0 w-[27%] z-20 rounded-[0_0_65%_8%/0_0_45%_6%]"
               style={{
-                backgroundImage: 'repeating-linear-gradient(90deg, var(--terracotta-dark) 0 16px, var(--terracotta) 16px 32px)',
+                backgroundImage: 'repeating-linear-gradient(90deg, var(--bg) 0 16px, var(--bg) 16px 32px)',
                 boxShadow: 'inset -16px 0 26px rgba(74,57,42,0.25)',
               }}
               aria-hidden="true"
             >
-              <span className="absolute bottom-[20%] left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full" style={{ backgroundColor: 'var(--cream)', border: '2px solid var(--terracotta-dark)' }} />
             </div>
             <div
               className="absolute top-0 bottom-0 right-0 w-[27%] z-20 -scale-x-100 rounded-[0_0_65%_8%/0_0_45%_6%]"
               style={{
-                backgroundImage: 'repeating-linear-gradient(90deg, var(--terracotta-dark) 0 16px, var(--terracotta) 16px 32px)',
+                backgroundImage: 'repeating-linear-gradient(90deg, var(--bg) 0 16px, var(--bg) 16px 32px)',
                 boxShadow: 'inset -16px 0 26px rgba(74,57,42,0.25)',
               }}
               aria-hidden="true"
             >
-              <span className="absolute bottom-[20%] left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full" style={{ backgroundColor: 'var(--cream)', border: '2px solid var(--terracotta-dark)' }} />
             </div>
 
-            {/* Contenu révélé */}
+            {/* Contenu */}
             <div className="relative z-10 max-w-[620px] text-center px-8 py-12">
               <span className="kicker justify-center flex">spécialiste depuis X ans</span>
               <h1 className="text-4xl md:text-5xl font-bold mb-5 leading-tight" style={{ color: 'var(--ink)' }}>
