@@ -154,12 +154,3 @@ VITE_SUPABASE_ANON_KEY=xxxxxxxxxxxxxxxx
 4. Ajouter les variables d'environnement dans l'interface de l'hébergeur
 5. Configurer le nom de domaine personnalisé
 
-## Roadmap
-
-- [ ] Finaliser la palette pastel sur l'ensemble des composants
-- [ ] Peaufiner le bord festonné de l'auvent (proportions container / rayon / backgroundSize)
-- [ ] Intégrer le service d'envoi d'e-mail pour le formulaire de contact
-- [ ] Peupler la page Réalisations avec les vraies photos avant/après
-- [ ] Rédiger les mentions légales / politique de confidentialité
-- [ ] Ajouter un outil d'analytics respectueux de la vie privée
-- [ ] Déployer en production avec nom de domaine
