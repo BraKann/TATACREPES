@@ -40,7 +40,6 @@ export default function Footer() {
           >
             Contact
           </span>
-          <a href="tel:+33XXXXXXXXX" className="text-sm font-semibold" style={{ color: 'var(--ink)' }}>📞 Nous appeler</a>
           <Link to="/contact" className="btn-primary mt-2 self-start">
             Demander un devis
           </Link>
@@ -51,8 +50,7 @@ export default function Footer() {
         className="max-w-[1100px] mx-auto px-6 flex flex-wrap justify-between gap-2 py-4"
         style={{ borderTop: '1px solid var(--border-soft)' }}
       >
-        <p className="text-xs" style={{ color: 'var(--ink-soft)' }}>© {new Date().getFullYear()} Tata Crêpes — Tous droits réservés</p>
-        <p className="text-xs" style={{ color: 'var(--ink-soft)' }}>Site réalisé avec ♥ en Bretagne</p>
+        <p className="text-xs" style={{ color: 'var(--ink-soft)' }}>© {new Date().getFullYear()} Tata Crêpes - Tous droits réservés</p>
       </div>
     </footer>
   )

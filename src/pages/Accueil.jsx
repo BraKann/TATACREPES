@@ -2,6 +2,10 @@ import { Link } from 'react-router-dom'
 import usage from '../images/IMG_3360.jpeg'
 import avant from '../images/IMG_3357.jpeg'
 import pendant from '../images/IMG_3358.jpeg'
+import storeBanane from '../images/store-banane.png'
+import storeBananeV2 from '../images/store-bananeV2.png'
+
+import TiltedCard from '../components/TiltedCard';
 
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 // 🎛️ MODIFIE : cartes "savoir-faire"
@@ -16,10 +20,10 @@ const SAVOIR_FAIRE = [
 // 🎛️ MODIFIE : trio de photos sous le hero (remplace les emojis par de vraies photos)
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 const TRIO_PHOTOS = [
-  { image: avant, label: 'Avant culottage' },
-  { image: pendant, label: 'En plein geste' },
-  { image: usage, label: 'Prête à l\u2019usage' },
-]
+  { image: avant, label: 'Avant culottage', position: 'center 100%' },
+  { image: pendant, label: 'En plein geste', position: 'center 95%' },
+  { image: usage, label: 'Prête à l\u2019usage', position: 'center 85%' },
+];
 
 export default function Accueil() {
   return (
@@ -27,24 +31,12 @@ export default function Accueil() {
       {/* ── DEVANTURE ── auvent + vitrine + rideau qui s'ouvre, version pastel */}
       <section className="relative" style={{ backgroundColor: 'var(--bg)' }}>
 
-        {/* Auvent */}
-        <div
-          className="relative h-[90px] flex items-start justify-center"
-          style={{
-            borderBottom: '3px solid var(--border-soft)',
-            backgroundImage: 'repeating-linear-gradient(100deg, var(--bande1) 0 28px, var(--bg) 28px 56px)',
-          }}
-        >
-        </div>
-        {/* Bord festonné */}
-        <div
-          className="h-[15px]"
-          style={{
-            backgroundColor: 'var(--bande3)',
-            backgroundImage: 'radial-gradient(circle at 18px 0, var(--bg) 17px, transparent 18px)',
-            backgroundSize: '36px 15px',
-            backgroundRepeat: 'repeat-x',
-          }}
+        {/* Auvent — image PNG (remplace le double dégradé CSS + festons) */}
+        <img
+          src={storeBananeV2}
+          alt=""
+          className="w-full h-auto block select-none"
+          style={{ filter: 'drop-shadow(0 2px 1.5px rgba(0,0,0,0.15))' }}
           aria-hidden="true"
         />
 
@@ -106,16 +98,25 @@ export default function Accueil() {
 
           {/* Trio de photos façon polaroïd, à cheval sur la vitrine */}
           <div className="max-w-[600px] mx-auto -mt-10 relative z-20 grid grid-cols-3 gap-4 md:gap-6 px-4">
-            {TRIO_PHOTOS.map(({ emoji, image, label }, i) => (
-              <div
+            {TRIO_PHOTOS.map(({ emoji, image, label, position }, i) => (
+              <TiltedCard
                 key={label}
+                rotateAmplitude={10}
+                scaleOnHover={1.05}
                 className={`photo-trio-item ${i === 1 ? '-rotate-2 md:-mt-3' : i === 0 ? 'rotate-3' : '-rotate-3'}`}
               >
                 <div className="aspect-square rounded-[0.65rem] overflow-hidden flex items-center justify-center text-3xl md:text-4xl" style={{ backgroundColor: 'var(--cream-deep)' }}>
-                  {image ? <img src={image} alt={label} className="w-full h-full object-cover" /> : emoji}
+                  {image ? (
+                    <img
+                      src={image}
+                      alt={label}
+                      className="w-full h-full object-cover"
+                      style={{ objectPosition: position || 'center' }}
+                    />
+                  ) : emoji}
                 </div>
                 <p className="text-[11px] md:text-xs text-center mt-1.5 font-semibold" style={{ color: 'var(--ink-soft)' }}>{label}</p>
-              </div>
+              </TiltedCard>
             ))}
           </div>
         </div>
