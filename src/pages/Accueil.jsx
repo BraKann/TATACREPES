@@ -3,7 +3,6 @@ import usage from '../images/IMG_3360.jpeg'
 import avant from '../images/IMG_3357.jpeg'
 import pendant from '../images/IMG_3358.jpeg'
 import storeBanane from '../images/store-banane.png'
-import storeBananeV2 from '../images/store-bananeV2.png'
 
 import TiltedCard from '../components/TiltedCard';
 
@@ -33,7 +32,7 @@ export default function Accueil() {
 
         {/* Auvent — image PNG (remplace le double dégradé CSS + festons) */}
         <img
-          src={storeBananeV2}
+          src={storeBanane}
           alt=""
           className="w-full h-auto block select-none"
           style={{ filter: 'drop-shadow(0 2px 1.5px rgba(0,0,0,0.15))' }}

@@ -1,0 +1,111 @@
+{
+  "planHash": "01f48c87cb03c5989606d06d8d96efa1860860df20052d024196c9392da41a61",
+  "phase": "postupgrade",
+  "recordedAtUtc": "2026-10-15T19:16:14.0060446Z",
+  "retryCount": 0,
+  "resetBaseline": false,
+  "complete": true,
+  "result": {
+    "setupSucceeded": true,
+    "setupDurationMs": 10147,
+    "setupFailureOutput": null,
+    "assertions": [
+      {
+        "name": "production-build",
+        "kind": "process",
+        "verificationMethod": "exit-code",
+        "passed": true,
+        "timedOut": false,
+        "skipped": false,
+        "skippedReason": null,
+        "exitCode": 0,
+        "outputSample": "\r\n\u003E studio-vitrine@0.1.0 build\r\n\u003E vite build\r\n\r\n\u001B[36mvite v5.4.21 \u001B[32mbuilding for production...\u001B[36m\u001B[39m\r\ntransforming...\r\n\u001B[32m\u2713\u001B[39m 454 modules transformed.\r\nrendering chunks...\r\ncomputing gzip size...\r\n\u001B[2mdist/\u001B[22m\u001B[32mindex.html                          \u001B[39m\u001B[1m\u001B[2m    1.04 kB\u001B[22m\u001B[1m\u001B[22m\u001B[2m \u2502 gzip:   0.56 kB\u001B[22m\r\n\u001B[2mdist/\u001B[22m\u001B[32massets/store-banane-D56p3bZG.png    \u001B[39m\u001B[1m\u001B[2m  172.37 kB\u001B[22m\u001B[1m\u001B[22m\r\n\u001B[2mdist/\u001B[22m\u001B[32massets/tata-q-remove-gFgBIXhL.png   \u001B[39m\u001B[1m\u001B[2m  546.63 kB\u001B[22m\u001B[1m\u001B[22m\r\n\u001B[2mdist/\u001B[22m\u001B[32massets/store-bananeV2-yT6qSagw.png  \u001B[39m\u001B[1m\u001B[2m1,626.30 kB\u001B[22m\u001B[1m\u001B[22m\r\n\u001B[2mdist/\u001B[22m\u001B[32massets/IMG_3360-BdsE6Wsz.jpeg       \u001B[39m\u001B[1m\u001B[2m3,039.80 kB\u001B[22m\u001B[1m\u001B[22m\r\n\u001B[2mdist/\u001B[22m\u001B[32massets/IMG_3358-DCT9IZ5L.jpeg       \u001B[39m\u001B[1m\u001B[2m3,981.79 kB\u001B[22m\u001B[1m\u001B[22m\r\n\u001B[2mdist/\u001B[22m\u001B[32massets/IMG_3357-Ce5kL90h.jpeg       \u001B[39m\u001B[1m\u001B[2m4,887.05 kB\u001B[22m\u001B[1m\u001B[22m\r\n\u001B[2mdist/\u001B[22m\u001B[35massets/index-DcsXtkYZ.css           \u001B[39m\u001B[1m\u001B[2m   21.96 kB\u001B[22m\u001B[1m\u001B[22m\u001B[2m \u2502 gzip:   5.20 kB\u001B[22m\r\n\u001B[2mdist/\u001B[22m\u001B[36massets/index-CYMwFIVn.js            \u001B[39m\u001B[1m\u001B[2m  322.50 kB\u001B[22m\u001B[1m\u001B[22m\u001B[2m \u2502 gzip: 102.84 kB\u001B[22m\r\n\u001B[32m\u2713 built in 1.87s\u001B[39m\r\n",
+        "durationMs": 2804
+      },
+      {
+        "name": "home-route-200",
+        "kind": "http-probe",
+        "verificationMethod": "http-status",
+        "passed": true,
+        "timedOut": false,
+        "skipped": false,
+        "skippedReason": null,
+        "exitCode": null,
+        "outputSample": "HTTP 200\n\u003C!DOCTYPE html\u003E\n\u003Chtml lang=\u0022fr\u0022\u003E\n  \u003Chead\u003E\n    \u003Cscript type=\u0022module\u0022\u003Eimport { injectIntoGlobalHook } from \u0022/@react-refresh\u0022;\ninjectIntoGlobalHook(window);\nwindow.$RefreshReg$ = () =\u003E {};\nwindow.$RefreshSig$ = () =\u003E (type) =\u003E type;\u003C/script\u003E\n\n    \u003Cscript type=\u0022module\u0022 src=\u0022/@vite/client\u0022\u003E\u003C/script\u003E\n\n    \u003Cmeta charset=\u0022UTF-8\u0022 /\u003E\n    \u003Cmeta name=\u0022viewport\u0022 content=\u0022width=device-width, initial-scale=1.0\u0022 /\u003E\n    \u003Cmeta name=\u0022description\u0022 content=\u0022Tata Cr\u00EApes \u2013 Culottage et remise en \u00E9tat de biligs professionnelles et particuli\u00E8res en Loire-Atlantique et Morbihan.\u0022 /\u003E\n    \u003Cmeta name=\u0022keywords\u0022 content=\u0022culottage billig, culottage cr\u00EApi\u00E8re, refaire culottage billig, entretien billig, r\u00E9novation billig, sp\u00E9cialiste billig\u0022 /\u003E\n    \u003Ctitle\u003ETata Cr\u00EApes \u2013 Le culottage dans les r\u00E8gles de l\u0027art\u003C/title\u003E\n    \u003Clink rel=\u0022preconnect\u0022 href=\u0022https://fonts.googleapis.com\u0022 /\u003E\n    \u003Clink rel=\u0022preconnect\u0022 href=\u0022https://fonts.gstatic.com\u0022 crossorigin /\u003E\n    \u003Clink href=\u0022https://fonts.googleapis.com/css2?family=Playfair\u002BDisplay:wght@700;900\u0026family=Lato:wght@400;700\u0026display=swap\u0022 rel=\u0022stylesheet\u0022 /\u003E\n  \u003C/head\u003E\n  \u003Cbody\u003E\n    \u003Cdiv id=\u0022root\u0022\u003E\u003C/div\u003E\n    \u003Cscript type=\u0022module\u0022 src=\u0022/src/main.jsx\u0022\u003E\u003C/script\u003E\n  \u003C/body\u003E\n\u003C/html\u003E\n--- server output ---\n\r\n\u003E studio-vitrine@0.1.0 dev\r\n\u003E vite --port=5189 --strictPort\r\n\r\n\r\n  \u001B[32m\u001B[1mVITE\u001B[22m v5.4.21\u001B[39m  \u001B[2mready in \u001B[0m\u001B[1m442\u001B[22m\u001B[2m\u001B[0m ms\u001B[22m\r\n\r\n  \u001B[32m\u279C\u001B[39m  \u001B[1mLocal\u001B[22m:   \u001B[36mhttp://localhost:\u001B[1m5189\u001B[22m/\u001B[39m\r\n\u001B[2m  \u001B[32m\u279C\u001B[39m  \u001B[1mNetwork\u001B[22m\u001B[2m: use \u001B[22m\u001B[1m--host\u001B[22m\u001B[2m to expose\u001B[22m\r\n",
+        "durationMs": 1065
+      },
+      {
+        "name": "tests-pass",
+        "kind": "process",
+        "verificationMethod": "test-results",
+        "passed": true,
+        "timedOut": false,
+        "skipped": false,
+        "skippedReason": null,
+        "exitCode": 0,
+        "outputSample": "\r\n\u003E studio-vitrine@0.1.0 test\r\n\u003E vitest run\r\n\r\n\r\n\u001B[1m\u001B[7m\u001B[36m RUN \u001B[39m\u001B[27m\u001B[22m \u001B[36mv2.1.9 \u001B[39m\u001B[90mD:/SiteWeb/TataCrepes/TATACREPES\u001B[39m\r\n\r\n\u001B[90mstderr\u001B[2m | src/pages/LeCulottage.test.jsx\u001B[2m \u003E \u001B[22m\u001B[2mLeCulottage page\u001B[2m \u003E \u001B[22m\u001B[2mrenders the explanation and contact action\r\n\u001B[22m\u001B[39mWarning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer\u0027s output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.\r\n    at MemoryRouter (D:\\SiteWeb\\TataCrepes\\TATACREPES\\node_modules\\react-router\\dist\\umd\\react-router.development.js:1097:7)\r\nWarning: useLayoutEffect does nothing on the server, because its effect cannot be encoded into the server renderer\u0027s output format. This will lead to a mismatch between the initial, non-hydrated UI and the intended UI. To avoid this, useLayoutEffect should only be used in components that render exclusively on the client. See https://reactjs.org/link/uselayouteffect-ssr for common fixes.\r\n    at LinkWithRef (D:\\SiteWeb\\TataCrepes\\TATACREPES\\node_modules\\react-router-dom\\dist\\umd\\react-router-dom.development.js:807:9)\r\n    at div\r\n    at div\r\n    at section\r\n    at LeCulottage\r\n    at Router (D:\\SiteWeb\\TataCrepes\\TATACREPES\\node_modules\\react-router\\dist\\umd\\react-router.development.js:1203:17)\r\n    at MemoryRouter (D:\\SiteWeb\\TataCrepes\\TATACREPES\\node_modules\\react-router\\dist\\umd\\react-router.development.js:1097:7)\r\n\r\n \u001B[32m\u2713\u001B[39m src/pages/LeCulottage.test.jsx \u001B[2m(\u001B[22m\u001B[2m1 test\u001B[22m\u001B[2m)\u001B[22m\u001B[90m 20\u001B[2mms\u001B[22m\u001B[39m\r\n\r\n\u001B[2m Test Files \u001B[22m \u001B[1m\u001B[32m1 passed\u001B[39m\u001B[22m\u001B[90m (1)\u001B[39m\r\n\u001B[2m      Tests \u001B[22m \u001B[1m\u001B[32m1 passed\u001B[39m\u001B[22m\u001B[90m (1)\u001B[39m\r\n\u001B[2m   Start at \u001B[22m 21:16:13\r\n\u001B[2m   Duration \u001B[22m 457ms\u001B[2m (transform 44ms, setup 0ms, collect 103ms, tests 20ms, environment 0ms, prepare 104ms)\u001B[22m\r\n\r\n",
+        "durationMs": 1776,
+        "testResults": {
+          "testFramework": "vitest",
+          "runnerDetectedFrom": "package_json",
+          "testsTotal": 1,
+          "testsPassed": 1,
+          "testsFailed": 0,
+          "testsSkipped": 0,
+          "parseFailed": false
+        }
+      }
+    ],
+    "executions": [
+      {
+        "source": "setup[0]",
+        "resolvedExecutable": "C:\\Program Files\\nodejs\\npm.CMD",
+        "args": [
+          "ci"
+        ],
+        "cwd": "D:\\SiteWeb\\TataCrepes\\TATACREPES",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      },
+      {
+        "source": "production-build",
+        "resolvedExecutable": "C:\\Program Files\\nodejs\\npm.CMD",
+        "args": [
+          "run",
+          "build"
+        ],
+        "cwd": "D:\\SiteWeb\\TataCrepes\\TATACREPES",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      },
+      {
+        "source": "home-route-200",
+        "resolvedExecutable": "C:\\Program Files\\nodejs\\npm.CMD",
+        "args": [
+          "run",
+          "dev",
+          "--",
+          "--port=5189",
+          "--strictPort"
+        ],
+        "cwd": "D:\\SiteWeb\\TataCrepes\\TATACREPES",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      },
+      {
+        "source": "tests-pass",
+        "resolvedExecutable": "C:\\Program Files\\nodejs\\npm.CMD",
+        "args": [
+          "test"
+        ],
+        "cwd": "D:\\SiteWeb\\TataCrepes\\TATACREPES",
+        "env": {},
+        "prependPath": [],
+        "platform": "win32"
+      }
+    ]
+  }
+}

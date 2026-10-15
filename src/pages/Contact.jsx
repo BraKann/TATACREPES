@@ -5,18 +5,121 @@ import { useState } from 'react'
 // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 const COMMUNES = ['Nantes', 'Saint-Nazaire', 'Vertou', 'Vannes', 'Lorient', 'La Baule']
 
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+// 🎛️ MODIFIE : réglages de la photo
+// ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+const PHOTO_MAX_INPUT_MB = 15 // taille max du fichier choisi
+const PHOTO_MAX_SIDE = 1600 // côté max après réduction (px)
+const PHOTO_QUALITY = 0.8 // qualité JPEG
+
 const inputClass =
   "font-sans text-base px-3.5 py-2.5 rounded-xl bg-white focus:outline focus:outline-2"
 
 const inputStyle = { border: '1px solid var(--border-soft)', color: 'var(--ink)' }
 
-export default function Contact() {
-  const [envoye, setEnvoye] = useState(false)
+// Réduit l'image et la renvoie en base64 JPEG
+async function prepareImage(file) {
+  const bitmap = await createImageBitmap(file)
+  const scale = Math.min(1, PHOTO_MAX_SIDE / Math.max(bitmap.width, bitmap.height))
+  const canvas = document.createElement('canvas')
+  canvas.width = Math.round(bitmap.width * scale)
+  canvas.height = Math.round(bitmap.height * scale)
+  canvas.getContext('2d').drawImage(bitmap, 0, 0, canvas.width, canvas.height)
 
-  function handleSubmit(e) {
+  const blob = await new Promise((resolve) =>
+    canvas.toBlob(resolve, 'image/jpeg', PHOTO_QUALITY)
+  )
+  const data = await new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    reader.onload = () => resolve(reader.result.split(',')[1])
+    reader.onerror = reject
+    reader.readAsDataURL(blob)
+  })
+  return { type: 'image/jpeg', data }
+}
+
+export default function Contact() {
+  const [status, setStatus] = useState('idle')
+  const [photoError, setPhotoError] = useState('')
+  const [contactError, setContactError] = useState('')
+
+  function handlePhotoChange(e) {
+    const file = e.target.files[0]
+    setPhotoError('')
+    if (!file) return
+    if (!file.type.startsWith('image/')) {
+      setPhotoError('Merci de choisir une image (JPG, PNG…).')
+      e.target.value = ''
+    } else if (file.size > PHOTO_MAX_INPUT_MB * 1024 * 1024) {
+      setPhotoError(`Photo trop lourde (max ${PHOTO_MAX_INPUT_MB} Mo).`)
+      e.target.value = ''
+    }
+  }
+
+  async function handleSubmit(e) {
     e.preventDefault()
-    // TODO: brancher l'envoi réel (API / service mail)
-    setEnvoye(true)
+
+    const endpoint = import.meta.env.VITE_APPS_SCRIPT_URL?.trim()
+    if (!endpoint) {
+      setStatus('configuration-error')
+      return
+    }
+
+    const form = e.currentTarget
+    const fd = new FormData(form)
+    const email = String(fd.get('email') || '').trim()
+    const telephone = String(fd.get('telephone') || '').trim()
+
+    // Au moins un moyen de contact
+    if (!email && !telephone) {
+      setContactError('Indiquez au moins un email ou un numéro de téléphone.')
+      form.elements.email.focus()
+      return
+    }
+    if (telephone && telephone.replace(/\D/g, '').length < 8) {
+      setContactError('Le numéro de téléphone semble incomplet.')
+      form.elements.telephone.focus()
+      return
+    }
+    setContactError('')
+
+    const file = fd.get('photo')
+    setStatus('sending')
+
+    try {
+      const payload = {
+        nom: fd.get('nom'),
+        email,
+        telephone,
+        message: fd.get('message'),
+        _gotcha: fd.get('_gotcha'),
+      }
+
+      if (file && file.size > 0) {
+        try {
+          payload.photo = await prepareImage(file)
+        } catch {
+          setPhotoError("Cette photo n'a pas pu être lue. Essayez un fichier JPG ou PNG.")
+          setStatus('idle')
+          return
+        }
+      }
+
+      // Apps Script ne permet pas de lire sa réponse depuis une autre origine.
+      // no-cors autorise l'envoi simple, mais rend la réponse opaque au navigateur.
+      await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload),
+        mode: 'no-cors',
+      })
+
+      form.reset()
+      setPhotoError('')
+      setStatus('success')
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -65,9 +168,9 @@ export default function Contact() {
             <div className="card-soft p-10">
               <h2 className="text-2xl font-bold mb-6" style={{ color: 'var(--ink)' }}>Demander un devis</h2>
 
-              {envoye ? (
-                <p className="p-5 rounded-xl font-semibold" style={{ backgroundColor: 'var(--terracotta-pale)', color: 'var(--ink)' }}>
-                  Merci ! Votre demande a bien été envoyée, nous revenons vers vous rapidement.
+              {status === 'success' ? (
+                <p role="status" className="p-5 rounded-xl font-semibold" style={{ backgroundColor: 'var(--terracotta-pale)', color: 'var(--ink)' }}>
+                  Merci ! Votre demande a été transmise. Nous revenons vers vous rapidement.
                 </p>
               ) : (
                 <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
@@ -76,25 +179,39 @@ export default function Contact() {
                     <input id="nom" name="nom" type="text" required className={inputClass} style={inputStyle} />
                   </div>
 
+                  <p className="text-sm" style={{ color: 'var(--ink-soft)' }}>
+                    Indiquez au moins un email ou un téléphone.
+                  </p>
+
                   <div className="flex flex-col gap-1.5">
                     <label htmlFor="email" className="font-semibold text-sm" style={{ color: 'var(--ink)' }}>Email</label>
-                    <input id="email" name="email" type="email" required className={inputClass} style={inputStyle} />
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      onInput={() => setContactError('')}
+                      aria-describedby={contactError ? 'contact-error' : undefined}
+                      className={inputClass}
+                      style={inputStyle}
+                    />
                   </div>
 
                   <div className="flex flex-col gap-1.5">
                     <label htmlFor="telephone" className="font-semibold text-sm" style={{ color: 'var(--ink)' }}>Téléphone</label>
-                    <input id="telephone" name="telephone" type="tel" className={inputClass} style={inputStyle} />
-                  </div>
-
-                  <div className="flex flex-col gap-1.5">
-                    <label htmlFor="typeBillig" className="font-semibold text-sm" style={{ color: 'var(--ink)' }}>Type de billig / crêpière</label>
-                    <select id="typeBillig" name="typeBillig" defaultValue="" className={inputClass} style={inputStyle}>
-                      <option value="" disabled>Choisissez une option</option>
-                      <option value="fonte">Fonte traditionnelle</option>
-                      <option value="electrique">Électrique professionnelle</option>
-                      <option value="gaz">Gaz</option>
-                      <option value="autre">Autre / je ne sais pas</option>
-                    </select>
+                    <input
+                      id="telephone"
+                      name="telephone"
+                      type="tel"
+                      onInput={() => setContactError('')}
+                      aria-describedby={contactError ? 'contact-error' : undefined}
+                      className={inputClass}
+                      style={inputStyle}
+                    />
+                    {contactError && (
+                      <p id="contact-error" role="alert" className="text-sm" style={{ color: 'var(--terracotta)' }}>
+                        {contactError}
+                      </p>
+                    )}
                   </div>
 
                   <div className="flex flex-col gap-1.5">
@@ -102,9 +219,43 @@ export default function Contact() {
                     <textarea id="message" name="message" rows="4" required className={inputClass} style={inputStyle} />
                   </div>
 
-                  <button type="submit" className="btn-primary self-start mt-1">
-                    Envoyer ma demande
+                  <div className="flex flex-col gap-1.5">
+                    <label htmlFor="photo" className="font-semibold text-sm" style={{ color: 'var(--ink)' }}>
+                      Photo de votre billig <span className="font-normal" style={{ color: 'var(--ink-soft)' }}>(optionnel, une seule)</span>
+                    </label>
+                    <input
+                      id="photo"
+                      name="photo"
+                      type="file"
+                      accept="image/*"
+                      onChange={handlePhotoChange}
+                      className={inputClass}
+                      style={inputStyle}
+                    />
+                    <p className="text-sm" style={{ color: 'var(--ink-soft)' }}>
+                      Une photo nous aide à estimer l'état de la plaque avant de vous faire un devis.
+                    </p>
+                    {photoError && (
+                      <p role="alert" className="text-sm" style={{ color: 'var(--terracotta)' }}>{photoError}</p>
+                    )}
+                  </div>
+
+                  <input type="text" name="_gotcha" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+
+                  <button type="submit" disabled={status === 'sending'} className="btn-primary self-start mt-1 disabled:opacity-50">
+                    {status === 'sending' ? 'Envoi en cours…' : 'Envoyer ma demande'}
                   </button>
+
+                  {status === 'configuration-error' && (
+                    <p role="alert" className="text-sm" style={{ color: 'var(--terracotta)' }}>
+                      L’envoi n’est pas encore configuré. Merci de nous contacter par téléphone ou par email.
+                    </p>
+                  )}
+                  {status === 'error' && (
+                    <p role="alert" className="text-sm" style={{ color: 'var(--terracotta)' }}>
+                      L’envoi a échoué. Veuillez réessayer ou nous contacter par téléphone ou par email.
+                    </p>
+                  )}
                 </form>
               )}
             </div>
