@@ -200,8 +200,8 @@ Le site actuel est une vitrine statique. Selon les fonctionnalités souhaitées,
 
 ### 4. Nom de domaine & e-mail professionnel
 
-- Réservation d'un nom de domaine (ex. `tata-crepes.fr`)
-- Adresse e-mail professionnelle associée (via l'hébergeur du domaine, Google Workspace, ou Infomaniak/OVH)
+- Réservation d'un nom de domaine (ex. `tatacrepes.fr`)
+- Adresse e-mail professionnelle associée (tatacrepes56@gmail.com) (via l'hébergeur du domaine, Google Workspace, ou Infomaniak/OVH)
 
 ### 5. Analytics (optionnel)
 
