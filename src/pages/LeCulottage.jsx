@@ -22,7 +22,7 @@ export default function LeCulottage() {
             Le culottage est le procédé qui rend une billig ou une crêpière antiadhésive
             sans aucun produit chimique : une fine pellicule d'huile de lin polymérisée,
             appliquée par couches successives à la chaleur, vient protéger et lisser le métal.
-            C'est un geste traditionnel breton, et c'est notre spécialité.
+            C'est un geste traditionnel breton.
           </p>
         </div>
       </section>
@@ -47,22 +47,6 @@ export default function LeCulottage() {
                 <p className="text-sm leading-relaxed" style={{ color: 'var(--ink-soft)' }}>{texte}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      <div className="wave-terracotta" />
-
-      {/* ── CTA ── rayures terracotta */}
-      <section className="stripes-terracotta py-16 md:py-24">
-        <div className="max-w-[1100px] mx-auto px-6 text-center">
-          <div className="card-soft p-10 max-w-[700px] mx-auto">
-            <span className="kicker justify-center flex">une billig à faire culotter ?</span>
-            <h2 className="text-2xl md:text-3xl font-bold mb-3" style={{ color: 'var(--ink)' }}>Parlons de votre crêpière</h2>
-            <p className="mb-6" style={{ color: 'var(--ink-soft)' }}>Diagnostic et devis gratuits, sous 48h.</p>
-            <Link to="/contact" className="btn-primary">
-              Demander un devis
-            </Link>
           </div>
         </div>
       </section>

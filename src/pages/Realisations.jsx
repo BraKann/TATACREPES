@@ -10,19 +10,13 @@ const REALISATIONS = [
   { titre: 'Crêperie du Port — La Baule', desc: 'Deux billigs gaz, entretien annuel sous contrat.' },
 ]
 
-const TEMOIGNAGES = [
-  { texte: "Nos crêpes ne collaient plus depuis des mois. Après le passage de Tata Crêpes, la billig est comme neuve.", auteur: 'Crêperie Ar Bilig, Vannes' },
-  { texte: "Un vrai savoir-faire, et une explication claire de chaque étape. On sait enfin entretenir notre matériel.", auteur: 'Restaurant Le Korrigan, Nantes' },
-  { texte: "La billig de ma grand-mère fonctionne à nouveau parfaitement. Un moment presque émouvant.", auteur: 'Particulier, Saint-Nazaire' },
-]
-
 export default function Realisations() {
   return (
     <>
       {/* ── HERO ── */}
       <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--cream)' }}>
         <div className="max-w-[1100px] mx-auto px-6 text-center">
-          <span className="kicker justify-center flex">nos réalisations</span>
+          <span className="kicker justify-center flex">mes réalisations</span>
           <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: 'var(--ink)' }}>Des biligs qui reprennent du service</h1>
           <p className="max-w-[600px] mx-auto text-lg" style={{ color: 'var(--ink-soft)' }}>
             Quelques exemples d'interventions récentes en Loire-Atlantique et dans le Morbihan.
@@ -60,21 +54,6 @@ export default function Realisations() {
         </div>
       </section>
 
-      <div className="wave-sage" />
-
-      {/* ── CTA ── rayures sauge */}
-      <section className="stripes-sage py-16 md:py-24">
-        <div className="max-w-[1100px] mx-auto px-6 text-center">
-          <div className="card-soft p-10 max-w-[700px] mx-auto">
-            <span className="kicker justify-center flex">à votre tour</span>
-            <h2 className="text-2xl md:text-3xl font-bold mb-3" style={{ color: 'var(--ink)' }}>Votre billig mérite le même traitement</h2>
-            <p className="mb-6" style={{ color: 'var(--ink-soft)' }}>Devis gratuit, sous 48h, sans engagement.</p>
-            <Link to="/contact" className="btn-primary">
-              Demander un devis
-            </Link>
-          </div>
-        </div>
-      </section>
     </>
   )
 }

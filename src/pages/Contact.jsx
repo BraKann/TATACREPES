@@ -128,9 +128,9 @@ export default function Contact() {
       <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--cream)' }}>
         <div className="max-w-[1100px] mx-auto px-6 text-center">
           <span className="kicker justify-center flex">un devis, une question</span>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: 'var(--ink)' }}>Contactez-nous</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: 'var(--ink)' }}>Contactez-moi</h1>
           <p className="max-w-[560px] mx-auto text-lg" style={{ color: 'var(--ink-soft)' }}>
-            Décrivez-nous votre billig, nous revenons vers vous sous 48h avec un devis gratuit.
+            Décrivez-moi votre billig, je reviens vers vous avec un devis gratuit ! 
           </p>
         </div>
       </section>
@@ -151,7 +151,7 @@ export default function Contact() {
               </p>
               <p className="mb-4" style={{ color: 'var(--ink)' }}>
                 <strong>Email</strong><br />
-                <a href="mailto:contact@tatacrepes.fr" className="font-semibold hover:underline" style={{ color: 'var(--terracotta)' }}>✉️ contact@tatacrepes.fr</a>
+                <a href="mailto:tatacrepes56@gmail.com" className="font-semibold hover:underline" style={{ color: 'var(--terracotta)' }}>✉️ tatacrepes56@gmail.com</a>
               </p>
               <p className="mb-2" style={{ color: 'var(--ink)' }}><strong>Zones d'intervention</strong></p>
               <ul className="flex flex-wrap gap-2 list-none mb-3">
@@ -170,7 +170,7 @@ export default function Contact() {
 
               {status === 'success' ? (
                 <p role="status" className="p-5 rounded-xl font-semibold" style={{ backgroundColor: 'var(--terracotta-pale)', color: 'var(--ink)' }}>
-                  Merci ! Votre demande a été transmise. Nous revenons vers vous rapidement.
+                  Merci 🤗 ! Votre demande a été transmise. Je reviens vers vous rapidement.
                 </p>
               ) : (
                 <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
@@ -233,7 +233,7 @@ export default function Contact() {
                       style={inputStyle}
                     />
                     <p className="text-sm" style={{ color: 'var(--ink-soft)' }}>
-                      Une photo nous aide à estimer l'état de la plaque avant de vous faire un devis.
+                      Une photo m'aide à estimer l'état de la plaque avant de vous faire un devis.
                     </p>
                     {photoError && (
                       <p role="alert" className="text-sm" style={{ color: 'var(--terracotta)' }}>{photoError}</p>
@@ -248,12 +248,12 @@ export default function Contact() {
 
                   {status === 'configuration-error' && (
                     <p role="alert" className="text-sm" style={{ color: 'var(--terracotta)' }}>
-                      L’envoi n’est pas encore configuré. Merci de nous contacter par téléphone ou par email.
+                      L’envoi n’est pas encore configuré. Merci de me contacter par téléphone ou par email 🤗.
                     </p>
                   )}
                   {status === 'error' && (
                     <p role="alert" className="text-sm" style={{ color: 'var(--terracotta)' }}>
-                      L’envoi a échoué. Veuillez réessayer ou nous contacter par téléphone ou par email.
+                      L’envoi a échoué. Veuillez réessayer ou contacter moi par téléphone ou par email 🤗.
                     </p>
                   )}
                 </form>

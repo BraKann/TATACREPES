@@ -143,7 +143,7 @@ export default function Accueil() {
       {/* ── AVANT/APRÈS ── section claire */}
       <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--cream)' }}>
         <div className="max-w-[1100px] mx-auto px-6 text-center">
-          <span className="kicker justify-center flex">nos</span>
+          <span className="kicker justify-center flex">mes</span>
           <h2 className="text-3xl md:text-4xl font-bold mb-10" style={{ color: 'var(--ink)' }}>réalisations</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-[700px] mx-auto">
             {['Avant', 'Après'].map((label) => (

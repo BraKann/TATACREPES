@@ -20,7 +20,7 @@ export default function APropos() {
       {/* ── HERO ── */}
       <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--cream)' }}>
         <div className="max-w-[1100px] mx-auto px-6 text-center">
-          <span className="kicker justify-center flex">qui sommes-nous</span>
+          <span className="kicker justify-center flex">qui suis-je</span>
           <h1 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: 'var(--ink)' }}>À propos de Tata Crêpes</h1>
           <p className="max-w-[620px] mx-auto text-lg" style={{ color: 'var(--ink-soft)' }}>
             Une passion transmise, un geste précis, et une seule mission :
@@ -35,7 +35,7 @@ export default function APropos() {
       <section className="stripes-soft py-16 md:py-24">
         <div className="max-w-[1100px] mx-auto px-6">
           <div className="card-soft p-10">
-            <span className="kicker">notre</span>
+            <span className="kicker"></span>
             <h2 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: 'var(--ink)' }}>Un savoir-faire breton, transmis avec exigence</h2>
             <p className="mb-4" style={{ color: 'var(--ink)' }}>
               Tata Crêpes est né d'un constat simple : trop de biligs, professionnelles
@@ -54,12 +54,10 @@ export default function APropos() {
         </div>
       </section>
 
-      <div className="wave-cream" />
-
       {/* ── VALEURS ── */}
       <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--cream)' }}>
         <div className="max-w-[1100px] mx-auto px-6">
-          <span className="kicker">nos</span>
+          <span className="kicker">mes</span>
           <h2 className="text-3xl md:text-4xl font-bold mb-10" style={{ color: 'var(--ink)' }}>valeurs</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {VALEURS.map(({ icon, titre, texte }) => (
@@ -79,10 +77,10 @@ export default function APropos() {
       <section className="stripes-sage py-16 md:py-24">
         <div className="max-w-[1100px] mx-auto px-6 text-center">
           <div className="card-soft p-10 max-w-[760px] mx-auto">
-            <span className="kicker justify-center flex">où nous intervenons</span>
+            <span className="kicker justify-center flex">où j'interviens</span>
             <h2 className="text-2xl md:text-3xl font-bold mb-4" style={{ color: 'var(--ink)' }}>Loire-Atlantique (44) et Morbihan (56)</h2>
             <p className="mb-6 max-w-[560px] mx-auto" style={{ color: 'var(--ink-soft)' }}>
-              Quelques communes où nous nous déplaçons régulièrement — et bien d'autres sur demande.
+              Quelques communes où je me déplace régulièrement.
             </p>
             <ul className="flex flex-wrap gap-2 justify-center list-none">
               {COMMUNES.map((c) => (
@@ -92,16 +90,6 @@ export default function APropos() {
               ))}
             </ul>
           </div>
-        </div>
-      </section>
-
-      {/* ── CTA ── */}
-      <section className="py-16 md:py-24" style={{ backgroundColor: 'var(--cream)' }}>
-        <div className="max-w-[1100px] mx-auto px-6 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6" style={{ color: 'var(--ink)' }}>Envie de nous confier votre billig ?</h2>
-          <Link to="/contact" className="btn-primary">
-            Demander un devis
-          </Link>
         </div>
       </section>
     </>
